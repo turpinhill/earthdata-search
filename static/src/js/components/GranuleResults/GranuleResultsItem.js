@@ -55,8 +55,6 @@ const GranuleResultsItem = forwardRef(({
       collectionId,
       granuleId: id
     })
-
-    // call actions.searchGranules
   }
 
   const handleClickGranuleDetails = (granuleId) => {
