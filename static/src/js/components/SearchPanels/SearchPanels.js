@@ -138,7 +138,6 @@ class SearchPanels extends PureComponent {
 
     const {
       collectionPanelView,
-      // eslint-disable-next-line no-unused-vars
       granulePanelView
     } = this.state
 

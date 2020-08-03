@@ -2,9 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import CollectionResultsHeader from '../../components/CollectionResults/CollectionResultsHeader'
-import { metricsCollectionSortChange } from '../../middleware/metrics/actions'
 import actions from '../../actions'
+
+import { metricsCollectionSortChange } from '../../middleware/metrics/actions'
+
+import CollectionResultsHeader from '../../components/CollectionResults/CollectionResultsHeader'
 
 const mapDispatchToProps = dispatch => ({
   onChangeQuery:
@@ -22,24 +24,24 @@ const mapStateToProps = state => ({
 })
 
 export const CollectionResultsHeaderContainer = ({
-  collections,
   collectionQuery,
-  panelView,
-  portal,
+  collections,
+  onChangePanelView,
   onChangeQuery,
   onMetricsCollectionSortChange,
   onToggleAdvancedSearchModal,
-  onChangePanelView
+  panelView,
+  portal
 }) => (
   <CollectionResultsHeader
-    collections={collections}
     collectionQuery={collectionQuery}
+    collections={collections}
+    onChangePanelView={onChangePanelView}
+    onChangeQuery={onChangeQuery}
+    onMetricsCollectionSortChange={onMetricsCollectionSortChange}
+    onToggleAdvancedSearchModal={onToggleAdvancedSearchModal}
     panelView={panelView}
     portal={portal}
-    onChangeQuery={onChangeQuery}
-    onToggleAdvancedSearchModal={onToggleAdvancedSearchModal}
-    onMetricsCollectionSortChange={onMetricsCollectionSortChange}
-    onChangePanelView={onChangePanelView}
   />
 )
 

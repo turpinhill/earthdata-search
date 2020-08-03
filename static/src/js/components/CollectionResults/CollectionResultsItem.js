@@ -1,11 +1,10 @@
 import React, { forwardRef } from 'react'
 import PropTypes from 'prop-types'
 import { Badge, OverlayTrigger, Tooltip } from 'react-bootstrap'
-import { isEmpty } from 'lodash'
 
 import { commafy } from '../../util/commafy'
-import { pluralize } from '../../util/pluralize'
 import { getApplicationConfig } from '../../../../../sharedUtils/config'
+import { pluralize } from '../../util/pluralize'
 
 import Button from '../Button/Button'
 import SplitBadge from '../SplitBadge/SplitBadge'
@@ -22,13 +21,12 @@ import './CollectionResultsItem.scss'
  * @param {Function} props.onViewCollectionDetails - Callback to show collection details route.
  */
 export const CollectionResultsItem = forwardRef(({
-  collection,
+  collectionMetadata,
   onAddProjectCollection,
   onRemoveCollectionFromProject,
   onViewCollectionDetails,
   onViewCollectionGranules
 }, ref) => {
-  if (isEmpty(collection)) return null
   const {
     collectionId,
     datasetId,
@@ -48,7 +46,7 @@ export const CollectionResultsItem = forwardRef(({
     temporalRange,
     thumbnail,
     versionId
-  } = collection
+  } = collectionMetadata
 
   const { thumbnailSize } = getApplicationConfig()
   const {
@@ -366,7 +364,7 @@ export const CollectionResultsItem = forwardRef(({
 CollectionResultsItem.displayName = 'CollectionResultsItem'
 
 CollectionResultsItem.propTypes = {
-  collection: PropTypes.shape({}).isRequired,
+  collectionMetadata: PropTypes.shape({}).isRequired,
   onAddProjectCollection: PropTypes.func.isRequired,
   onRemoveCollectionFromProject: PropTypes.func.isRequired,
   onViewCollectionDetails: PropTypes.func.isRequired,

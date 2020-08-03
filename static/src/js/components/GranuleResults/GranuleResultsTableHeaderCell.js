@@ -10,7 +10,6 @@ import Button from '../Button/Button'
 import MoreActionsDropdown from '../MoreActionsDropdown/MoreActionsDropdown'
 import MoreActionsDropdownItem from '../MoreActionsDropdown/MoreActionsDropdownItem'
 
-
 const GranuleResultsTableHeaderCell = (props) => {
   const { column, cell, row } = props
   const { customProps } = column
@@ -42,6 +41,7 @@ const GranuleResultsTableHeaderCell = (props) => {
     let granuleId = id
 
     if (isCwic) granuleId = murmurhash3(id).toString()
+
     onExcludeGranule({
       collectionId,
       granuleId
